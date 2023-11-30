@@ -16,7 +16,7 @@ const HomeIntro = () => {
         <ul className='intro__links'>
             <li className='intro__links__item'>
             <Link to={publicRoute.login} className='intro__link blue-rounded-button'>
-                Присоедениться
+                Присоединиться
             </Link>
             </li>
             <li className='intro__links__item'>

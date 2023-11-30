@@ -29,12 +29,14 @@
 .intro__links{
     margin-top: 60px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
 }
 
-.intro__links__item + .intro__links__item{
+.intro__links__item{
     margin-left: 20px;
+    margin-top: 40px;
 }
 
 .intro__link{

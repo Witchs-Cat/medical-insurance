@@ -45,7 +45,7 @@ const Header = () => {
             </li>
             <li className='header__navigation__item'>
               <Link to={publicRoute.signup} className='header__navigation__link'>
-                Присоедениться
+                Присоединиться
               </Link>
             </li>
           </ul>

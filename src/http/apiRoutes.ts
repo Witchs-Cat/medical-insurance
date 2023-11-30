@@ -1,7 +1,7 @@
-export const baseUrl = "loaclhost:5000"
+export const baseUrl = "http://localhost:5000"
 const apiUrl = "/api"
 const authUrl = "/auth"
 
-export const loginUrl = apiUrl+"/login"
-export const registrationUrl = apiUrl+"/registration"
+export const loginUrl = authUrl+"/login"
+export const registrationUrl = authUrl+"/registration"
 
