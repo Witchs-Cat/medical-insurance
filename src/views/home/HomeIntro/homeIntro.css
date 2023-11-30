@@ -1,0 +1,44 @@
+.intro {
+    padding-top: 70px;
+    padding-bottom: 20vh;
+
+    color: white;
+    text-align: center; 
+
+    background: no-repeat center url(./images/home_intro.png);    
+    background-size: cover;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: multiply;
+}
+
+.intro__wrapper{
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+.intro__title{
+    font-size: 44.5px;
+    font-weight: 800;
+}
+
+.intro__subtitle{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.intro__links{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.intro__links__item + .intro__links__item{
+    margin-left: 20px;
+}
+
+.intro__link{
+    color: white;
+    text-decoration: none;     
+    font-size: 600;
+}
