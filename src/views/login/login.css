@@ -1,4 +1,6 @@
 .login{
+    background: url("./images/login_bg.jpg");
+    background-size: cover;
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,7 +9,58 @@
 }
 
 .login-form{
-    padding: 30px;
+    background-color: white;
+    padding: 40px;
+    min-width: 480px
+}
+
+.login-form__header{
+    text-align: center;
+}
+
+.login-form__header__title{
+    font-size: 20px;
+    font-weight:  700;
+}
+
+.login-form__header__subtitle{
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-form__container{
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.login-form__label{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(90,90,90)
+}
+
+.login-form__input{
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: solid 2px;    
+    border-bottom-color: black;
+}
+
+.login-form__button{
+    background-color: cornflowerblue;
+    padding: 10px;
+    font-weight: 600;
+    color: rgb(30,30,30)
+}
+
+.login-form__button:hover{
+    opacity: 0.8;
+}
+
+.login__need-account{
+    margin-top: 10px;
+    font-size: 14px;
 }
