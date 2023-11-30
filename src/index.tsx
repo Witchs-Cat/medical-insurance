@@ -6,7 +6,7 @@ import './reset.css';
 import './index.css'
 
 import App from './components/app/App';
-
+import StoreContext from './components/context/StoreContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,8 +14,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+   <StoreContext>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+   </StoreContext>
   </React.StrictMode>
 );
