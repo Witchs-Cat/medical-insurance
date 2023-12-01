@@ -29,6 +29,7 @@ const Signup = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const name = form.firstName+" "+form.lastName+" "+(form.middleName??"")
+    
     store.registrationAsync(form.email, form.password, name, new Date(Date.parse(form.birthday)))
       .then(()=> {
         navigate(publicRoute.home)

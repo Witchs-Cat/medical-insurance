@@ -18,7 +18,7 @@ const InfoCard : React.FC<IInfoCardArgs> = ({image, title, subTitle, link}) => {
     <p className='mmi-info-card__subtitle'>{subTitle}</p>
     <Link to={link} className='mmi-info-card__follow blue-rounded-button'>
         Перейти
-        </Link>
+    </Link>
   </div>
 }
 

@@ -12,13 +12,10 @@ export default class Store{
     }
 
     async loginAsync(email:string, password:string){
-        console.log("начало")
         const response = await AuthService.login({email, password})
         localStorage.setItem('token', response.token)
-        this.isAuth = true  
-        console.log("токен")
+        this.isAuth = true 
         const user =  await this.getMeAsync()
-        console.log("конец")
         this.selfUser = user;
     }
 
