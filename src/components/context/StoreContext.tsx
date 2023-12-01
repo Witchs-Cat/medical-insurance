@@ -6,7 +6,7 @@ export interface IStoreContext{
   }
   
 const store = new Store();
-export  const Context = createContext<IStoreContext>({
+export const Context = createContext<IStoreContext>({
     store, 
   })
   

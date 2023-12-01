@@ -1,26 +1,34 @@
 import { makeAutoObservable } from "mobx";
 import AuthService from "../services/AuthServce";
-import ILoginRequest from "./models/request/ILoginRequest";
 import IUser from "./models/response/IUser"
-import IRegistrationRequest from "./models/request/IRegistrationRequest";
+import UserService from "../services/UserService";
 
 export default class Store{
-    // selfUser = {} : IUser
+    selfUser = {} as IUser
     isAuth = false;
 
     constructor(){
         makeAutoObservable(this)
     }
 
-    async login(email:string, password:string){
+    async loginAsync(email:string, password:string){
+        console.log("начало")
         const response = await AuthService.login({email, password})
-        localStorage.setItem('token', response.data.token);
-        this.isAuth = true;
+        localStorage.setItem('token', response.token)
+        this.isAuth = true  
+        console.log("токен")
+        const user =  await this.getMeAsync()
+        console.log("конец")
+        this.selfUser = user;
     }
 
-    async registration(email:string, password:string, username:string, birthday:Date){
+    async getMeAsync(){
+        return UserService.getMeAsync();
+    }
+
+    async registrationAsync(email:string, password:string, username:string, birthday:Date){
         const response = await AuthService.registration({email, password, username, birthday})
-        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('token', response.token);
         this.isAuth = true;
     }
 }

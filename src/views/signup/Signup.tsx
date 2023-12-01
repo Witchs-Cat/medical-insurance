@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import '../login/Login'
 
@@ -17,7 +17,7 @@ interface ISignupForm {
 
 const Signup = () => {
   const {store} = useContext(Context)
-
+  const navigate = useNavigate();
   const [form, setForm] = useState({} as ISignupForm)
 
   const onFormChange = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -29,7 +29,12 @@ const Signup = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const name = form.firstName+" "+form.lastName+" "+(form.middleName??"")
-    store.registration(form.email, form.password, name, new Date(Date.parse(form.birthday)))
+    store.registrationAsync(form.email, form.password, name, new Date(Date.parse(form.birthday)))
+      .then(()=> {
+        navigate(publicRoute.home)
+      }, (exeption)=>{
+        console.log(exeption)
+      })
   }
 
   return <main className='login'>

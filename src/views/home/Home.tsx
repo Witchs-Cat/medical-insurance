@@ -18,9 +18,7 @@ const Home: React.FC = () => {
         <HomeAboutUs/>
      </main>
     <Footer/>
-  </div>
-    
-  
+  </div> 
 }
 
 export default Home

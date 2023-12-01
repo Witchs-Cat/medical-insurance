@@ -1,4 +1,3 @@
-export default interface IAuthResponse
-{
+export default interface IAuthResponse{
     token:string
 }

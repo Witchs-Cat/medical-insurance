@@ -33,8 +33,8 @@ const HomeMMI = () => {
   return <section className='mmi-info'>
     <Wrapper>
         <ul className="mmi-info__cards">
-            {infoCards.map(x => 
-                <li className="mmi-info__cards__item">
+            {infoCards.map((x,index) => 
+                <li key={index} className="mmi-info__cards__item">
                     <InfoCard {...x}/>
                 </li>)}
         </ul>

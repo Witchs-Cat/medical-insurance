@@ -34,8 +34,8 @@ const HomeAboutUs = () => {
   return <Wrapper>
         <h1 className='advanteges__title'>О нашей компании.</h1>
         <ul className="mmi-info__cards">
-            {ourTeam.map(x => 
-                <li className="mmi-info__cards__item">
+            {ourTeam.map((x, index) => 
+                <li key={index} className="mmi-info__cards__item">
                     <InfoCard {...x}/>
                 </li>)}
         </ul>

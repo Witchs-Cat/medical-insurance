@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
 
 import {publicRoute} from '../../components/routing/PublicRoutes/PublicRoutes'
@@ -12,6 +12,7 @@ interface ILoginForm {
 
 const Login : React.FC = () => {
   const {store} = useContext(Context)
+  const navigate = useNavigate()
 
   const [form, setForm] = useState<ILoginForm>({email:"",password:""})
 
@@ -23,7 +24,13 @@ const Login : React.FC = () => {
 
   const onSubmit = (e:React.FormEvent) => {
     e.preventDefault()
-    store.login(form.email, form.password)
+    store.loginAsync(form.email, form.password)
+      .then(()=> {
+        console.log(12341);
+        navigate(publicRoute.home)
+      }, (exeption)=>{
+        console.log(exeption)
+      })
   }
 
   return <main className='login'>

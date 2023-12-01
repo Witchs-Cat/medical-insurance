@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Wrapper from '../warapper/Wrapper'
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,17 @@ import './header.css'
 
 import { publicRoute } from '../routing/PublicRoutes/PublicRoutes';
 import { companyName } from '../../utils/constants';
+import { Context } from '../context/StoreContext';
+import HeaderAuthLinks from './HeaderAuthLinks';
+import Store from '../../store/store';
+import HeaderUserLinks from './HeaderUserLinks';
 
 
-const Header = () => {
+const Header : React.FC = () => {
+  const {store} = useContext(Context)
+  const element : React.ReactElement = (!store.isAuth)?
+    <HeaderAuthLinks/> : <HeaderUserLinks/>
+
   return <div className='header'>
     <Wrapper>
       <div className="header__wrapper">
@@ -36,22 +44,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <nav className='header__navigation'>
-          <ul className='header__navigation__list'>
-            <li className='header__navigation__item'>
-              <Link className='header__navigation__link' to={publicRoute.login}>
-                Войти
-              </Link>
-            </li>
-            <li className='header__navigation__item'>
-              <Link to={publicRoute.signup} className='header__navigation__link'>
-                Присоединиться
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        {element}
       </div>
-
     </Wrapper>
   </div>
 }
