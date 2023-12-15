@@ -6,15 +6,15 @@ import './header.css'
 
 import { publicRoute } from '../routing/PublicRoutes/PublicRoutes';
 import { companyName } from '../../utils/constants';
-import { Context } from '../context/StoreContext';
+import { Context, useAppStore } from '../context/StoreContext';
 import HeaderAuthLinks from './HeaderAuthLinks';
 import Store from '../../store/store';
 import HeaderUserLinks from './HeaderUserLinks';
 
 
 const Header : React.FC = () => {
-  const {store} = useContext(Context)
-  const element : React.ReactElement = (!store.isAuth)?
+  const store = useAppStore()
+  const element : React.ReactElement = (!store.getIsAuth())?
     <HeaderAuthLinks/> : <HeaderUserLinks/>
 
   return <div className='header'>

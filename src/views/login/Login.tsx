@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
 
 import {publicRoute} from '../../components/routing/PublicRoutes/PublicRoutes'
-import { Context } from '../../components/context/StoreContext'
+import { useAppStore } from '../../components/context/StoreContext'
 
 interface ILoginForm {
   email: string,
@@ -11,9 +11,10 @@ interface ILoginForm {
 }
 
 const Login : React.FC = () => {
-  const {store} = useContext(Context)
+  const store = useAppStore()
   const navigate = useNavigate()
 
+  const [exceptionMessage, setExceptionMessage] = useState<string>()
   const [form, setForm] = useState<ILoginForm>({email:"",password:""})
 
   const onFormChange = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -26,10 +27,10 @@ const Login : React.FC = () => {
     e.preventDefault()
     store.loginAsync(form.email, form.password)
       .then(()=> {
-        console.log(12341);
         navigate(publicRoute.home)
       }, (exeption)=>{
-        console.log(exeption)
+        console.log(exeption);
+        setExceptionMessage(exeption.response?.data?.message  ?? "неизвестная ошибка")
       })
   }
 
@@ -42,9 +43,10 @@ const Login : React.FC = () => {
 
         <div className='login-form__container'>
           <label className="login-form__label" htmlFor="email">АДРЕС ЭЛЕКТРОНОЙ ПОЧТЫ</label>
-          <input className="login-form__input" type="email" id="email" required/>
+          <input className="login-form__input" autoComplete="email" type="email" id="email" required/>
           <label className="login-form__label" htmlFor="password">ПАРОЛЬ</label>
-          <input className="login-form__input" type="password" id="password" required/>
+          <input className="login-form__input" autoComplete="password" type="password" id="password" required/>
+          <label className='login__exception'>{exceptionMessage}</label>
           <button className='login-form__button' type="submit">Войти</button>
         </div> 
 

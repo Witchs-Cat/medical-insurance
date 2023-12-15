@@ -5,6 +5,7 @@
 .header__wrapper{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin: 15px;
 }
 
@@ -21,6 +22,7 @@
 .header__navigation__list{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .header__navigation__item{

@@ -15,7 +15,7 @@ export default class AuthService{
     }
 
     static async registration(request: IRegistrationRequest): Promise<IAuthResponse>{
-        const response = await api.post(route.loginUrl, request)
+        const response = await api.post(route.registrationUrl, request)
         return response.data
         //return api.post(route.registrationUrl, request)
         //return new Promise((resolve, reject) => resolve({ token: "00000"}))

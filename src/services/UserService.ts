@@ -9,10 +9,5 @@ export default class UserService{
     static async getMeAsync(): Promise<IUser>{
         const response = await api.get(route.me)
         return response.data
-        /*new Promise((resolve)=> resolve({
-            username: "Даниил",
-            bithday: new Date(),
-            role: "none"
-        }))*/
     }
 }

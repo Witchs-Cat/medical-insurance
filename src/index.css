@@ -44,6 +44,7 @@ body, html{
 
 
 .blue-rounded-button {
+  display: block;   
   background-color: rgb(35,166,240);
   padding: 13px 23px;
   border-radius: 40px;
@@ -54,6 +55,7 @@ body, html{
 } 
 
 .white-rounded-button{
+  display: block;
   padding: 10px 20px;
   outline: 3px solid white;
   border-radius: 40px;

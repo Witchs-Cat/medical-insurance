@@ -3,5 +3,5 @@ export default interface IRegistrationRequest{
     username: string,
     password: string,
     //milliseconds utc
-    birthday: Date
+    birthdayDate: Date
 }
