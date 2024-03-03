@@ -1,0 +1,14 @@
+.white-rounded-button{
+    padding: 10px 20px;
+    color: white;
+    outline: 3px solid white;
+    border-radius: 40px;
+  }
+  
+.white-rounded-button:hover{
+    opacity: 0.8;
+  }
+
+.white-rounded-button:focus {
+  outline: 3px solid white;
+}

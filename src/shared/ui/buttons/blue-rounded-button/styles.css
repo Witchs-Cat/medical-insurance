@@ -1,0 +1,10 @@
+.blue-rounded-button {
+    background-color: rgb(35,166,240);
+    color: white;
+    padding: 13px 23px;
+    border-radius: 40px;
+  }
+  
+.blue-rounded-button:hover{
+    opacity: 0.8;
+  } 
